@@ -1,0 +1,32 @@
+﻿@model IEnumerable<FortuneReciever.BLL.Models.FortuneMessage>
+@{
+   ViewBag.Title = "Index";
+   Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Recieved messages</h2>
+
+@Html.ActionLink("Recieve fortune messagse", "RecieveFortuneMessage", null, new { @class = "btn btn-info" })
+
+@if (Model != null)
+{
+   <table class="table">
+      <tr>
+         <th>
+            @Html.DisplayNameFor(model => model.Topic)
+         </th>
+         <th> @Html.DisplayNameFor(model => model.Body)</th>
+      </tr>
+      @foreach (var item in Model)
+      {
+         <tr>
+            <td>
+               @Html.DisplayFor(modelItem => item.Topic)
+            </td>
+            <td>
+               @Html.DisplayFor(modelItem => item.Body)
+            </td>
+         </tr>
+      }
+   </table>
+}
