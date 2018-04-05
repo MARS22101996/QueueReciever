@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortuneReciever", "FortuneR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortuneReciever.BLL", "FortuneReciever.BLL\FortuneReciever.BLL.csproj", "{6B7C9C5C-A87E-4FA4-9056-DE19037CB5AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortuneReceiver.DAL", "FortuneReceiver.DAL\FortuneReceiver.DAL.csproj", "{8A78A1D5-D137-4AC1-94BA-4E5274026925}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6B7C9C5C-A87E-4FA4-9056-DE19037CB5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B7C9C5C-A87E-4FA4-9056-DE19037CB5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B7C9C5C-A87E-4FA4-9056-DE19037CB5AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A78A1D5-D137-4AC1-94BA-4E5274026925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A78A1D5-D137-4AC1-94BA-4E5274026925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A78A1D5-D137-4AC1-94BA-4E5274026925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A78A1D5-D137-4AC1-94BA-4E5274026925}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

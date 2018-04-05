@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
-using FortuneReciever.BLL.Models;
+using FortuneReceiver.DAL.Entities;
+using FortuneReciever.BLL.Dto;
 
 namespace FortuneReciever.BLL.Interfaces
 {
    public interface IFortuneService
    {
-      IEnumerable<FortuneMessage> GetFortuneMessages();
+      IEnumerable<FortuneMessageDto> GetFortuneMessages();
    }
 }

@@ -2,65 +2,35 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using AutoMapper;
+using FortuneReceiver.DAL.Entities;
+using FortuneReceiver.DAL.Interfaces;
+using FortuneReciever.BLL.Dto;
 using FortuneReciever.BLL.Interfaces;
-using FortuneReciever.BLL.Models;
 using Microsoft.ServiceBus.Messaging;
 
 namespace FortuneReciever.BLL.Services
 {
    public class FortuneService : IFortuneService
    {
-      private const string QueueName = "queue-maria";
-      private const int MessageCount = 4;
-      private readonly Lazy<string> _connectionServiceBus =
-         new Lazy<string>(GetServiceBusConnection);
-      private QueueClient _client;
+      private readonly IQueueRepository _queueRepository;
+      private readonly IMapper _mapper;
 
-      public FortuneService()
+      public FortuneService(
+         IQueueRepository queueRepository,
+         IMapper mapper)
       {
-         InitializeQueueClient();
+         _queueRepository = queueRepository;
+         _mapper = mapper;
       }
 
-      public IEnumerable<FortuneMessage> GetFortuneMessages()
+      public IEnumerable<FortuneMessageDto> GetFortuneMessages()
       {
-         var messages = _client.ReceiveBatch(MessageCount).ToList();
+         var recievedMessages = _queueRepository.Recieve();
 
-         var recievedMessages = new List<FortuneMessage>();
+         var recievedMessagesDto = _mapper.Map<IEnumerable<FortuneMessageDto>>(recievedMessages);
 
-         ConfigureFortuneMessages(messages, recievedMessages);
-
-         return recievedMessages;
-      }
-
-      private static void ConfigureFortuneMessages(List<BrokeredMessage> messages,
-         List<FortuneMessage> recievedMessages)
-      {
-         if (messages.Count == 0) return;
-
-         foreach (var item in messages)
-         {
-            recievedMessages.Add(item.GetBody<FortuneMessage>());
-            item.Complete();
-         }
-      }
-
-      private static string GetServiceBusConnection()
-      {
-         try
-         {
-            var connectionString = ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
-            return connectionString ?? string.Empty;
-         }
-         catch (Exception ex)
-         {
-            throw new Exception("Cannot read connection string from the config file", ex);
-         }
-
-      }
-
-      private void InitializeQueueClient()
-      {
-         _client = QueueClient.CreateFromConnectionString(_connectionServiceBus.Value, QueueName, ReceiveMode.PeekLock);
+         return recievedMessagesDto;
       }
    }
 }
