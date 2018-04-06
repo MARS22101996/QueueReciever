@@ -38,7 +38,10 @@ namespace FortuneReceiver.DAL.Repositories
          List<BrokeredMessage> messages,
          List<FortuneMessage> recievedMessages)
       {
-         if (messages.Count == 0) return;
+         if (messages.Count == 0)
+         {
+            return;
+         }
 
          foreach (var item in messages)
          {

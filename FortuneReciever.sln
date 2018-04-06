@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortuneReciever", "FortuneR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortuneReciever.BLL", "FortuneReciever.BLL\FortuneReciever.BLL.csproj", "{6B7C9C5C-A87E-4FA4-9056-DE19037CB5AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortuneReceiver.DAL", "FortuneReceiver.DAL\FortuneReceiver.DAL.csproj", "{8A78A1D5-D137-4AC1-94BA-4E5274026925}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortuneReciever.DAL", "FortuneReceiver.DAL\FortuneReciever.DAL.csproj", "{8A78A1D5-D137-4AC1-94BA-4E5274026925}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
